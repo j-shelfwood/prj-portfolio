@@ -1,4 +1,4 @@
-function cliPortfolio() {
+export default function cli() {
   return {
     command: "",
     output: [
@@ -24,7 +24,7 @@ function cliPortfolio() {
         "│ Enthusiastic and socially engaged,         │",
         "│ I thrive in complex domains and love       │",
         "│ working on innovative projects.            │",
-        "└────────────────────────────────────────────┘",
+        "└───────────────────────────��────────────────┘",
       ],
       experience: () => [
         "📋 Work Experience:",
@@ -97,7 +97,7 @@ function cliPortfolio() {
         "🔗 LinkedIn: linkedin.com/in/%F0%9F%9B%A0joris-schelfhout-53465a10b",
         "🐦 Twitter:  @J_Shelfwood",
       ],
-      clear: () => {
+      clear: function () {
         this.output = [];
         return ['Screen cleared. Type "help" for available commands.'];
       },
