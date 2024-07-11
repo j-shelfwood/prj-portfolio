@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --watch"
+    "dev": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --watch",
+    "build": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --minify"
   },
   "dependencies": {},
   "devDependencies": {
