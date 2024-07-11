@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fancy CLI Portfolio</title>
+    <title>Joris Schelfhout's Portfolio</title>
     <link rel="stylesheet" href="dist/app.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
     <link
@@ -17,23 +17,23 @@
   >
     <div class="w-full max-w-3xl">
       <div
-        class="bg-black bg-opacity-50 rounded-lg shadow-2xl border border-green-500 p-6 transition-all duration-300 hover:shadow-green-500/50"
+        class="p-6 transition-all duration-300 bg-black bg-opacity-50 border border-green-500 rounded-lg shadow-2xl hover:shadow-green-500/50"
       >
         <div class="flex items-center mb-4 space-x-2">
           <div
-            class="w-3 h-3 rounded-full bg-red-500 transition-transform duration-300 hover:scale-110"
+            class="w-3 h-3 transition-transform duration-300 bg-red-500 rounded-full hover:scale-110"
           ></div>
           <div
-            class="w-3 h-3 rounded-full bg-yellow-500 transition-transform duration-300 hover:scale-110"
+            class="w-3 h-3 transition-transform duration-300 bg-yellow-500 rounded-full hover:scale-110"
           ></div>
           <div
-            class="w-3 h-3 rounded-full bg-green-500 transition-transform duration-300 hover:scale-110"
+            class="w-3 h-3 transition-transform duration-300 bg-green-500 rounded-full hover:scale-110"
           ></div>
-          <h1 class="text-xl font-semibold ml-4 typewriter">CLI Portfolio</h1>
+          <h1 class="ml-4 text-xl font-semibold typewriter">CLI Portfolio</h1>
         </div>
         <div
           id="output"
-          class="mb-4 h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-gray-800"
+          class="mb-4 overflow-y-auto h-80 scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-gray-800"
         >
           <template x-for="(line, index) in output" :key="index">
             <div
@@ -44,14 +44,14 @@
           </template>
         </div>
         <div
-          class="flex items-center bg-gray-800 rounded p-2 transition-all duration-300 focus-within:ring-2 focus-within:ring-green-500"
+          class="flex items-center p-2 transition-all duration-300 bg-gray-800 rounded focus-within:ring-2 focus-within:ring-green-500"
         >
           <span class="mr-2 text-green-500">$</span>
           <input
             x-model="command"
             @keydown.enter="executeCommand"
             type="text"
-            class="bg-transparent flex-grow outline-none cursor transition-all duration-300 focus:text-white"
+            class="flex-grow transition-all duration-300 bg-transparent outline-none cursor focus:text-white"
             autofocus
           />
         </div>
@@ -63,7 +63,7 @@
         return {
           command: "",
           output: [
-            "Welcome to my CLI Portfolio!",
+            "Welcome to Joris Schelfhout's CLI Portfolio!",
             'Type "help" for available commands.',
           ],
           commands: {
@@ -77,59 +77,71 @@
               "- clear: Clear the screen",
             ],
             about: () => [
-              "┌──────────────────────────���─────────────────┐",
-              "│ Hi, I'm [Your Name]                        │",
-              "│ I'm a [Your profession] passionate about   │",
-              "│ [Your interests].                          │",
+              "┌────────────────────────────────────────────┐",
+              "│ Hi, I'm Joris Schelfhout                   │",
+              "│ I'm a Web Developer passionate about       │",
+              "│ creating tailored web-based solutions.     │",
               "│                                            │",
-              "│ I love solving complex problems and        │",
-              "│ creating innovative solutions.             │",
+              "│ Enthusiastic and socially engaged,         │",
+              "│ I thrive in complex domains and love       │",
+              "│ working on innovative projects.            │",
               "└────────────────────────────────────────────┘",
             ],
             experience: () => [
               "📋 Work Experience:",
               "",
-              "🚀 Software Engineer at TechCorp (2020-Present)",
-              "   • Led development of cloud-based solutions",
-              "   • Optimized database performance by 40%",
+              "🚀 Web Developer at SMIT. Digitaal Vakmanschap (Jul 2019 - Present)",
+              "   • Developed B2B e-commerce platforms",
+              "   • Automated administrative processes in the pharmaceutical industry",
+              "   • Managed client communication and development responsibilities",
               "",
-              "💡 Junior Developer at StartupX (2018-2020)",
-              "   • Developed responsive web applications",
-              "   • Collaborated in an agile team environment",
+              "💡 Guest Lecturer at Horizon College (Nov 2018 - Jun 2019)",
+              "   • Created and taught Laravel & Vue.js curriculum",
+              "   • Conducted workshops on modern web development",
               "",
-              "🌱 Intern at CodeCo (Summer 2017)",
-              "   • Assisted in front-end development tasks",
-              "   • Learned industry best practices",
+              "🌱 Web Developer at SMIT. Digitaal Vakmanschap (Sep 2018 - Oct 2018)",
+              "   • Fixed production bugs and responded to issues",
+              "   • Translated project leads into actionable plans",
+              "   • Discussed and designed new features with clients",
+              "",
+              "🎤 Conference Manager (Volunteer) at Human Music (2017 - Present)",
+              "   • Managed crowd, venue, and speakers at tech conferences like Laracon EU",
+              "",
+              "💼 Intern Web Developer at Pieter Smit Media B.V (Feb 2017 - Aug 2017)",
+              "   • Built custom applications using Vue.js and Laravel",
+              "",
+              "🔧 Web Developer at Pneunet Multitechniek Pneumatics (Jan 2016 - Present)",
+              "   • Developed tools for data logging and production cost insights",
+              "   • Enabled 24/7 monitoring for defective machine lines",
+              "   • Prevented production line failures",
             ],
             projects: () => [
               "🛠️ Past Projects:",
               "",
-              "🛒 E-commerce Platform",
-              "   • Built with React and Node.js",
-              "   • Implemented secure payment gateway",
+              "🛒 B2B E-commerce Platform for SMIT.",
+              "   • Custom-built solutions for various industries",
+              "   • Focus on user experience and scalability",
               "",
-              "📈 Machine Learning Model",
-              "   • Developed algorithm for stock price prediction",
-              "   • Achieved 85% accuracy on test data",
+              "📊 Data Logging Tool for Pneunet Multitechniek Pneumatics",
+              "   • Provided real-time monitoring and cost analysis",
               "",
-              "📱 Fitness Tracker Mobile App",
-              "   • Created for iOS and Android using React Native",
-              "   • Integrated with health monitoring devices",
+              "🌐 Laravel & Vue.js Curriculum for Horizon College",
+              "   • Designed comprehensive learning material",
+              "   • Successfully prepared students for their exams",
             ],
             skills: () => [
               "🔧 Skills:",
               "",
               "💻 Programming:",
               "   JavaScript ████████░░ 80%",
-              "   Python     ███████░░░ 70%",
-              "   Java       ██████░░░░ 60%",
+              "   PHP        ███████░░░ 70%",
+              "   Vue.js     ████████░░ 80%",
               "",
               "🌐 Web Technologies:",
               "   HTML/CSS   █████████░ 90%",
-              "   React      ████████░░ 80%",
-              "   Node.js    ███████░░░ 70%",
+              "   Laravel    ███████░░░ 70%",
               "",
-              "🛠�� Tools:",
+              "🛠️ Tools:",
               "   Git        █████████░ 90%",
               "   Docker     ███████░░░ 70%",
               "   AWS        ██████░░░░ 60%",
@@ -142,10 +154,9 @@
             contact: () => [
               "📫 Contact Information:",
               "",
-              "📧 Email:    your.email@example.com",
-              "🔗 LinkedIn: linkedin.com/in/yourprofile",
-              "🐙 GitHub:   github.com/yourusername",
-              "🐦 Twitter:  @yourhandle",
+              "📧 Email:    joris@shelfwood.co",
+              "🔗 LinkedIn: linkedin.com/in/%F0%9F%9B%A0joris-schelfhout-53465a10b",
+              "🐦 Twitter:  @J_Shelfwood",
             ],
             clear: () => {
               this.output = [];
