@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --watch",
-    "build": "npx tailwindcss -i ./src/app.css -o ./dist/app.css --minify"
+    "dev": "npx tailwindcss -i ./css/app.css -o ./public/build/app.css --watch",
+    "build": "npx tailwindcss -i ./css/app.css -o ./public/build/app.css --minify"
   },
-  "dependencies": {},
+  "dependencies": {
+    "alpinejs": "^3.14.1"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.4"
   }
