@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fancy CLI Portfolio</title>
+    <link rel="stylesheet" href="../dist/app.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gray-900 text-green-400 font-['Fira_Code'] p-4 min-h-screen flex items-center justify-center"
+    x-data="cliPortfolio()"
+  >
+    <div class="w-full max-w-3xl">
+      <div
+        class="bg-black bg-opacity-50 rounded-lg shadow-2xl border border-green-500 p-6 transition-all duration-300 hover:shadow-green-500/50"
+      >
+        <div class="flex items-center mb-4 space-x-2">
+          <div
+            class="w-3 h-3 rounded-full bg-red-500 transition-transform duration-300 hover:scale-110"
+          ></div>
+          <div
+            class="w-3 h-3 rounded-full bg-yellow-500 transition-transform duration-300 hover:scale-110"
+          ></div>
+          <div
+            class="w-3 h-3 rounded-full bg-green-500 transition-transform duration-300 hover:scale-110"
+          ></div>
+          <h1 class="text-xl font-semibold ml-4 typewriter">CLI Portfolio</h1>
+        </div>
+        <div
+          id="output"
+          class="mb-4 h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-gray-800"
+        >
+          <template x-for="(line, index) in output" :key="index">
+            <div
+              x-text="line"
+              class="py-1 line-item"
+              x-init="setTimeout(() => $el.classList.add('show'), index * 50)"
+            ></div>
+          </template>
+        </div>
+        <div
+          class="flex items-center bg-gray-800 rounded p-2 transition-all duration-300 focus-within:ring-2 focus-within:ring-green-500"
+        >
+          <span class="mr-2 text-green-500">$</span>
+          <input
+            x-model="command"
+            @keydown.enter="executeCommand"
+            type="text"
+            class="bg-transparent flex-grow outline-none cursor transition-all duration-300 focus:text-white"
+            autofocus
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function cliPortfolio() {
+        return {
+          command: "",
+          output: [
+            "Welcome to my CLI Portfolio!",
+            'Type "help" for available commands.',
+          ],
+          commands: {
+            help: () => [
+              "Available commands:",
+              "- about: Display information about me",
+              "- experience: Show my work experience",
+              "- projects: List my past projects",
+              "- skills: Display my skills",
+              "- contact: Show my contact information",
+              "- clear: Clear the screen",
+            ],
+            about: () => [
+              "┌──────────────────────────���─────────────────┐",
+              "│ Hi, I'm [Your Name]                        │",
+              "│ I'm a [Your profession] passionate about   │",
+              "│ [Your interests].                          │",
+              "│                                            │",
+              "│ I love solving complex problems and        │",
+              "│ creating innovative solutions.             │",
+              "└────────────────────────────────────────────┘",
+            ],
+            experience: () => [
+              "📋 Work Experience:",
+              "",
+              "🚀 Software Engineer at TechCorp (2020-Present)",
+              "   • Led development of cloud-based solutions",
+              "   • Optimized database performance by 40%",
+              "",
+              "💡 Junior Developer at StartupX (2018-2020)",
+              "   • Developed responsive web applications",
+              "   • Collaborated in an agile team environment",
+              "",
+              "🌱 Intern at CodeCo (Summer 2017)",
+              "   • Assisted in front-end development tasks",
+              "   • Learned industry best practices",
+            ],
+            projects: () => [
+              "🛠️ Past Projects:",
+              "",
+              "🛒 E-commerce Platform",
+              "   • Built with React and Node.js",
+              "   • Implemented secure payment gateway",
+              "",
+              "📈 Machine Learning Model",
+              "   • Developed algorithm for stock price prediction",
+              "   • Achieved 85% accuracy on test data",
+              "",
+              "📱 Fitness Tracker Mobile App",
+              "   • Created for iOS and Android using React Native",
+              "   • Integrated with health monitoring devices",
+            ],
+            skills: () => [
+              "🔧 Skills:",
+              "",
+              "💻 Programming:",
+              "   JavaScript ████████░░ 80%",
+              "   Python     ███████░░░ 70%",
+              "   Java       ██████░░░░ 60%",
+              "",
+              "🌐 Web Technologies:",
+              "   HTML/CSS   █████████░ 90%",
+              "   React      ████████░░ 80%",
+              "   Node.js    ███████░░░ 70%",
+              "",
+              "🛠�� Tools:",
+              "   Git        █████████░ 90%",
+              "   Docker     ███████░░░ 70%",
+              "   AWS        ██████░░░░ 60%",
+              "",
+              "🤝 Soft Skills:",
+              "   Team Leadership",
+              "   Project Management",
+              "   Problem Solving",
+            ],
+            contact: () => [
+              "📫 Contact Information:",
+              "",
+              "📧 Email:    your.email@example.com",
+              "🔗 LinkedIn: linkedin.com/in/yourprofile",
+              "🐙 GitHub:   github.com/yourusername",
+              "🐦 Twitter:  @yourhandle",
+            ],
+            clear: () => {
+              this.output = [];
+              return ['Screen cleared. Type "help" for available commands.'];
+            },
+          },
+          executeCommand() {
+            const cmd = this.command.toLowerCase().trim();
+            const newOutput = ["$ " + this.command];
+
+            if (this.commands[cmd]) {
+              newOutput.push(...this.commands[cmd]());
+            } else {
+              newOutput.push(
+                'Command not found. Type "help" for available commands.'
+              );
+            }
+
+            this.output = [...this.output, ...newOutput];
+            this.command = "";
+            this.$nextTick(() => {
+              const outputElement = document.getElementById("output");
+              outputElement.scrollTop = outputElement.scrollHeight;
+            });
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
