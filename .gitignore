@@ -1,3 +1,4 @@
-# Ignore dist
-dist/
-dist/**
+# Ignore dist, node_modules
+public/dist/**
+node_modules/
+node_modules/**
